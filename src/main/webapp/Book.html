@@ -3,31 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Register Page</title>
+<style type="text/css">
+	body{
+		background-image: url("Register.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+</style>
 </head>
 <body>
 <center>
 	<h1>Register</h1>
 
 	<form action="Book.jsp">
+
+	<p style="text-align:center;">First Name: <input type="text" name="fname"></p>
+	<p style="text-align:center;">Last Name: <input type="text" name="lname"></p>
+	<p style="text-align:center;">Mobile no:  <input type="text" name="mobile"></p>
+	<p style="text-align:center;">Email id: <input type="text" name="email"></p>
+	<label for="source">Source:</label>
+  	<select name="source" id="source">
+    	<option value="kolkata">Kolkata</option>
+    	<option value="delhi">Delhi</option>
+    	<option value="mumbai">Mumbai</option>
+    	<option value="hyderabad">Hyderabad</option>
+    	<option value="bangalore">Bangalore</option>
+  	</select>
+	<label for="dest">Destination:</label>
+  	<select name="dest" id="dest">
+    	<option value="kolkata">Kolkata</option>
+    	<option value="delhi">Delhi</option>
+    	<option value="mumbai">Mumbai</option>
+    	<option value="hyderabad">Hyderabad</option>
+    	<option value="bangalore">Bangalore</option>
+  	</select>
+	
+	<p style="text-align:center;">Persons: <input type="text" name="persons"></p>
+	<p style="text-align:center;">Date: <input type="date" name="date"></p>
 	
 	
-	First Name: <input type="text" name="fname"><br><br>
-	Last Name: <input type="text" name="lname"><br><br>
-	Mobile no: <input type="text" name="mobile"><br><br>
-	Email id: <input type="text" name="email"><br><br>
-	Source: <input type="text" name="source"><br><br>
-	Destination: <input type="text" name="dest"><br><br>
-	Persons: <input type="text" name="persons"><br><br>
-	Date: <input type="date" name="date"><br><br>
 	<h1>Payment</h1>
 
-	Card No.<input type="text" name="card"><br>
-	Card Holder's Name:<input type="text" name="holder"><br>
-	Month: <input type="text" name="month"><br>
-	Year: <input type="text" name="year"><br>
-	CVV no. <input type="text" name="cvv"><br><br>
+	<p style="text-align:center;">Card No.<input type="text" name="card"></p>
+	<p style="text-align:center;">Card Holder's Name:<input type="text" name="holder"></p>
+	<p style="text-align:center;">Month: <input type="text" name="month"></p>
+	<p style="text-align:center;">Year: <input type="text" name="year"></p>
+	<p style="text-align:center;">CVV no. <input type="text" name="cvv"></p>
+	<p style="text-align:center;"><input type="submit" value="Confirm"></p>
 
-	<input type="submit" value="Confirm">
 	</form>
 </center>
 </body>

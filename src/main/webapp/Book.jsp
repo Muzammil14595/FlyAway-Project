@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Payment Page</title>
+<style type="text/css">
+	body{
+		background-image: url("BookingConfirm.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+</style>
 </head>
 <body>
 <center>
@@ -23,6 +30,10 @@ PreparedStatement pstmt;
 	int persons= Integer.parseInt(request.getParameter("persons"));
 	String date= request.getParameter("date");
 	
+	if(source.equalsIgnoreCase(dest) || date.equals("") || fname.equals("") || lname.equals("") || email.equals(""))
+	{
+		response.sendRedirect("Book.html");
+	}
 	
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
@@ -62,7 +73,7 @@ PreparedStatement pstmt;
 					out.print("<br/>");
 					out.println("Date: "+date);
 					out.print("<br/>");
-					out.println("Airline: "+rs.getString(5));
+					out.println("Departure: "+rs.getString(5));
 					out.print("<br/>"); 
 					out.println("First Name: "+ fname); 
 					out.print("<br/>");
@@ -72,6 +83,8 @@ PreparedStatement pstmt;
 					out.print("<br/>");
 					out.println("Email id: "+ email);
 					out.print("<br/>");
+					out.print("<br/>");
+					
 				}
 			 }
 		}
@@ -86,6 +99,9 @@ PreparedStatement pstmt;
 		int year= Integer.parseInt(request.getParameter("year"));
 		int cvv= Integer.parseInt(request.getParameter("cvv"));
 		
+		if(holder.equals("")){
+			response.sendRedirect("Book.html");
+		}
 		 try{
 			Class.forName("com.mysql.jdbc.Driver");
 			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway","root","root");
@@ -104,20 +120,9 @@ PreparedStatement pstmt;
 			System.out.println(e);
 		} 
 %>
-
-<!-- <h1>Payment</h1>
-<form action="Finalpage2.jsp">
-Card No.<input type="text" name="card"><br>
-Card Holder's Name:<input type="text" name="holder"><br>
-Month: <input type="text" name="month"><br>
-Year: <input type="text" name="year"><br>
-CVV no. <input type="text" name="cvv"><br><br>
-Source: <input type="text" name="source"><br><br>
-Destination: <input type="text" name="dest"><br><br>
-
-
-<input type="submit" value="Confirm">
-</form> -->
+<form action="Welcome.html">
+<input type="submit" value="Home">
+</form>
 </center>
 </body>
 </html>

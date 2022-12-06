@@ -4,7 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Available Flights</title>
+<title>Available Flight</title>
+<style type="text/css">
+	body{
+		background-image: url("Available_flights1.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+</style>
 </head>
 <body>
 <center>
@@ -19,6 +26,10 @@ PreparedStatement pstmt;
 	String dest= request.getParameter("dest");
 	String date= request.getParameter("date");
 
+	if(source.equalsIgnoreCase(dest) || date.equals("")){
+		response.sendRedirect("Homepage.html");
+	}
+	
 
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
@@ -46,15 +57,22 @@ PreparedStatement pstmt;
 			if(source.equalsIgnoreCase(rs.getString(1)) && dest.equalsIgnoreCase(rs.getString(2))){
 				out.println("Source: "+rs.getString(1));
 				out.print("<br/>");
+				out.print("<br/>");
 				out.println("Destination: "+rs.getString(2));
+				out.print("<br/>");
 				out.print("<br/>");
 				out.println("Airline: "+rs.getString(3));
 				out.print("<br/>");
+				out.print("<br/>");
 				out.println("Ticket Price: "+rs.getInt(4));
+				out.print("<br/>");
 				out.print("<br/>");
 				out.println("Date: "+date);
 				out.print("<br/>");
-				out.println("Time: "+rs.getString(5));
+				out.print("<br/>");
+				out.println("Departure: "+rs.getString(5));
+				out.print("<br/>");
+				out.print("<br/>");
 			}
 		
 		}
@@ -67,7 +85,7 @@ PreparedStatement pstmt;
 	}
 %>
 <form action="Book.html">
-<input type="submit" value="Book">
+<input type="submit" value="Book Flight">
 </form>
 </center>
 </body>

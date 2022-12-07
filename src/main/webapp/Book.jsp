@@ -25,7 +25,7 @@ PreparedStatement pstmt;
 	String dest= request.getParameter("dest");
 	String fname=request.getParameter("fname");
 	String lname= request.getParameter("lname");
-	int mobile= Integer.parseInt(request.getParameter("mobile"));
+	long mobile= Long.parseLong(request.getParameter("mobile"));
 	String email= request.getParameter("email");
 	int persons= Integer.parseInt(request.getParameter("persons"));
 	String date= request.getParameter("date");
@@ -41,7 +41,7 @@ PreparedStatement pstmt;
 		pstmt=con.prepareStatement("insert into user values(?,?,?,?,?)");
 		pstmt.setString(1, fname);
 		pstmt.setString(2, lname);
-		pstmt.setInt(3, mobile);
+		pstmt.setLong(3, mobile);
 		pstmt.setString(4, email);
 		pstmt.setInt(5, persons);
 		
@@ -93,7 +93,7 @@ PreparedStatement pstmt;
 			System.out.println(e);
 		} 
 		
-		int card= Integer.parseInt(request.getParameter("card"));
+		long card= Long.parseLong(request.getParameter("card"));
 		String holder= request.getParameter("holder");
 		int month= Integer.parseInt(request.getParameter("month"));
 		int year= Integer.parseInt(request.getParameter("year"));
@@ -106,7 +106,7 @@ PreparedStatement pstmt;
 			Class.forName("com.mysql.jdbc.Driver");
 			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway","root","root");
 			pstmt=con.prepareStatement("insert into payment values(?,?,?,?,?)");
-			pstmt.setInt(1, card);
+			pstmt.setLong(1, card);
 			pstmt.setString(2, holder);
 			pstmt.setInt(3, month);
 			pstmt.setInt(4, year);

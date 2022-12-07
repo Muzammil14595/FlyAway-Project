@@ -30,7 +30,7 @@ Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway
 				pstmt.close();
 				System.out.println("password updated");
 				
-				response.sendRedirect("AdminHome.html");
+				response.sendRedirect("PasswordChangeSuccess.html");
 				} catch (Exception e) {
 					System.out.println(e);
 				} 
